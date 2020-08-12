@@ -94,6 +94,12 @@ while user_input != "q":
         printRoomItems(room[getRoomNameDictKey(player.current_room)])
 
     user_input = input("Enter direction or q to quit: ")
+
+    #handle case to bring up inventory
+    if user_input == "i":
+        player.printInventoryItems()
+
+    # handle case for geting and droping items as a player
     parse_input = user_input.split()
     if len(parse_input) == 2:
         if parse_input[0] == "get" or parse_input[0] == "take":
@@ -114,6 +120,7 @@ while user_input != "q":
                 print("")
                 print("Item is not there")
 
+    # handle case for navigating the rooms as a player
     if user_input == "n" or user_input == "s" or user_input == "e" or user_input == "w":
         if user_input == "n":
             if room[getRoomNameDictKey(player.current_room)].n_to != None:

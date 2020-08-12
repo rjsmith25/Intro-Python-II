@@ -21,3 +21,12 @@ class Player:
                 index = i
         if(index != None):
             self.inventory.pop(index)
+
+    def printInventoryItems(self):
+        if self.inventory:
+            print(f"Items in Inventory: ", end=" ")
+            for item in self.inventory:
+                print(f"{item.name}", end=" ")
+        else:
+            print("No item in inventory yet")
+        print("\n")
